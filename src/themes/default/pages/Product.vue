@@ -420,7 +420,7 @@ export default {
   metaInfo () {
     const storeView = currentStoreView()
     return {
-      link: [
+      /* link: [
         { rel: 'amphtml',
           href: this.$router.resolve(localizedRoute({
             name: this.getCurrentProduct.type_id + '-product-amp',
@@ -431,7 +431,7 @@ export default {
             }
           }, storeView.storeCode)).href
         }
-      ],
+      ], */
       title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name),
       meta: this.getCurrentProduct.meta_description ? [{ vmid: 'description', name: 'description', content: htmlDecode(this.getCurrentProduct.meta_description) }] : []
     }
