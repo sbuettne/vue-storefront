@@ -3,13 +3,6 @@ import { actions as urlActions } from '../../../store/actions';
 import { currentStoreView, localizedDispatcherRouteName } from '@vue-storefront/core/lib/multistore';
 import { normalizeUrlPath, parametrizeRouteData } from '../../../helpers';
 
-const SearchQuery = {
-  applyFilter: jest.fn()
-};
-
-jest.mock('@vue-storefront/core/lib/search/searchQuery', () => () =>
-  SearchQuery
-);
 jest.mock('@vue-storefront/i18n', () => ({ t: jest.fn(str => str) }));
 jest.mock('@vue-storefront/core/modules/recently-viewed/index', () => ({
   cacheStorage: {
