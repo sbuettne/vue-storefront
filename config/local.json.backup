@@ -16,7 +16,7 @@
     "availableCacheTags": ["product", "category", "home", "checkout", "page-not-found", "compare", "my-account", "P", "C", "error", "attribute", "taxrule"],
     "invalidateCacheKey": "aeSu7aip",
     "invalidateCacheForwarding": false,
-    "invalidateCacheForwardUrl": "https://vsf-api-mz.livecontext.coremedia.com/invalidate?key=aeSu7aip&tag=",
+    "invalidateCacheForwardUrl": "http://localhost:8081/invalidate?key=aeSu7aip&tag=",
     "dynamicConfigReload": false,
     "dynamicConfigContinueOnError": false,
     "dynamicConfigExclude": ["ssr", "storeViews", "entities", "localForage", "shipping", "boost", "query"],
@@ -44,16 +44,16 @@
     "verbosityLevel": "display-everything"
   },
   "redis": {
-    "host": "vsf-redis",
+    "host": "localhost",
     "port": 6379,
     "db": 0
   },
   "graphql":{
-    "host": "vsf-api",
-    "port": 8080
+    "host": "localhost",
+    "port": 8081
   },
   "api": {
-    "url": "https://vsf-api-mz.livecontext.coremedia.com"
+    "url": "http://localhost:8081"
   },
   "elasticsearch": {
     "httpAuth": "",
@@ -529,10 +529,7 @@
     }
   },
   "coremedia": {
-    "endpoint": "https://vsf-api-mz.livecontext.coremedia.com/api/ext/coremedia",
-    "media": {
-      "baseUrl": "https://headless-server-preview-mz.livecontext.coremedia.com"
-    },
+    "endpoint": "http://localhost:8081/api/ext/coremedia",
     "pde": {
       "metadata": [{
         "byContentVariant": {

@@ -1,0 +1,1 @@
+export const SET_COREMEDIA = 'TEMPLATE/SET_COREMEDIA';

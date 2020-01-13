@@ -1,6 +1,12 @@
 <template>
   <div id="home">
-    <head-image />
+    <div class="row">
+      <div class="container">
+        <CoreMedia />
+      </div>
+    </div>
+
+    <!--    <head-image />-->
 
     <promoted-offers />
 
@@ -53,6 +59,7 @@ import {mapGetters} from 'vuex'
 import config from 'config'
 import {registerModule} from '@vue-storefront/core/lib/modules'
 import {RecentlyViewedModule} from '@vue-storefront/core/modules/recently-viewed'
+import CoreMedia from '../components/theme/blocks/CoreMedia/CoreMedia';
 
 export default {
   data () {
@@ -62,12 +69,13 @@ export default {
   },
   mixins: [Home],
   components: {
-    HeadImage,
+    // HeadImage,
     Onboard,
     ProductListing,
     PromotedOffers,
     TileLinks,
-    LazyHydrate
+    LazyHydrate,
+    CoreMedia
   },
   computed: {
     ...mapGetters('user', ['isLoggedIn']),

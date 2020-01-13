@@ -24,7 +24,9 @@ export default {
     { rel: 'apple-touch-startup-image', href: '/assets/apple_splash_1242.png', sizes: '1242x2208' },
     { rel: 'apple-touch-startup-image', href: '/assets/apple_splash_750.png', sizes: '750x1334' },
     { rel: 'apple-touch-startup-image', href: '/assets/apple_splash_640.png', sizes: '640x1136' },
-    { rel: 'manifest', href: '/assets/manifest.json' }
+    { rel: 'manifest', href: '/assets/manifest.json' },
+    { rel: 'stylesheet', type: 'text/css', href: '/assets/coremedia/css/coremedia.preview.basic.css' },
+    { rel: 'stylesheet', type: 'text/css', href: '/assets/coremedia/css/placementHighlighting.css' }
   ],
   script: [
     {
@@ -32,6 +34,12 @@ export default {
       async: true,
       integrity: 'sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA',
       crossorigin: 'anonymous'
+    }, {
+      src: '/assets/coremedia/vendor/jquery-3.3.1.min.js'
+    }, {
+      src: '/assets/coremedia/js/coremedia.preview.js'
+    }, {
+      src: '/assets/coremedia/js/placementHighlighting.js'
     }
   ]
 }

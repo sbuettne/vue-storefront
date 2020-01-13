@@ -1,0 +1,43 @@
+version: '3.4'
+services:
+
+  vsf-app:
+    # image: divante/vue-storefront:latest
+    container_name: vsf-app
+    build:
+      context: /opt/vsf/vue-storefront
+      dockerfile: /opt/vsf/vue-storefront/docker/vue-storefront/Dockerfile
+    env_file: /opt/vsf/vue-storefront/docker/vue-storefront/default.env
+    environment:
+      VS_ENV: dev
+    volumes:
+      - '/opt/vsf/vue-storefront/babel.config.js:/var/www/babel.config.js'
+      - '/opt/vsf/vue-storefront/config:/var/www/config'
+      - '/opt/vsf/vue-storefront/core:/var/www/core'
+      - '/opt/vsf/vue-storefront/ecosystem.json:/var/www/ecosystem.json'
+      - '/opt/vsf/vue-storefront/.eslintignore:/var/www/.eslintignore'
+      - '/opt/vsf/vue-storefront/.eslintrc.js:/var/www/.eslintrc.js'
+      - '/opt/vsf/vue-storefront/lerna.json:/var/www/lerna.json'
+      - '/opt/vsf/vue-storefront/tsconfig.json:/var/www/tsconfig.json'
+      - '/opt/vsf/vue-storefront/tsconfig-build.json:/var/www/tsconfig-build.json'
+      - '/opt/vsf/vue-storefront/shims.d.ts:/var/www/shims.d.ts'
+      - '/opt/vsf/vue-storefront/package.json:/var/www/package.json'
+      - '/opt/vsf/vue-storefront/src:/var/www/src'
+      - '/opt/vsf/vue-storefront/var:/var/www/var'
+      - '/opt/vsf/vue-storefront/packages:/var/www/packages'
+    tmpfs:
+      - /var/www/dist
+#    ports:
+#      - '3000:3000'
+    networks:
+      - backend
+    labels:
+      traefik.enable: "true"
+      traefik.port: "3000"
+      traefik.frontend.entryPoints: http,https
+      traefik.frontend.headers.SSLRedirect: "true"
+      traefik.storefront.frontend.rule: Host:vsf-store${HOSTNAME_DELIMITER:-.}${ENVIRONMENT_FQDN:-docker.localhost}
+
+networks:
+  web:
+    driver: bridge
