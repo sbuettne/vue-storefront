@@ -16,6 +16,7 @@ export const CoreMedia = {
   },
   beforeMount () {
     console.log('CoreMedia#beforeMount');
-    this.$store.dispatch('coremedia/get')
+    let cmSite = this.$route.query.cm_site;
+    this.$store.dispatch('coremedia/get', {siteId: cmSite})
   }
 };

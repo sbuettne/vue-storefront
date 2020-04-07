@@ -1,5 +1,6 @@
 import * as types from './mutation-types'
 import config from 'config'
+import fetch from 'isomorphic-fetch'
 
 export const module = {
   namespaced: true,
@@ -12,8 +13,9 @@ export const module = {
     }
   },
   actions: {
-    get ({ commit }) {
-      fetch(`${config.coremedia.endpoint}/homegrid/vans-en-gb`, {
+    get ({ commit }, params) {
+      let siteId = params && params.siteId ? params.siteId : 'thenorthface-en-us';
+      fetch(`${config.coremedia.endpoint}/homegrid/${siteId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         mode: 'cors'
